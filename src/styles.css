@@ -5,14 +5,19 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Chez Nanda design system.
+ * Chez Nanda design system — Healthy Snacks & More.
  *
- * Warm, rustic bistro palette using oklch color tokens.
+ * Palette taken from the printed menu:
+ *   maroon  #7E2334  page background
+ *   gold    #FDCC6F  headings, price bursts, borders
+ *   green   #D6D183  item names, script logo
+ *   cream   #FFF8F5  body copy
  */
 
 @theme inline {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -54,92 +59,79 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Custom Chez Nanda tokens */
-  --color-cream: var(--cream);
-  --color-terracotta: var(--terracotta);
-  --color-sage: var(--sage);
+  /* Brand tokens */
+  --color-maroon: var(--maroon);
+  --color-maroon-deep: var(--maroon-deep);
   --color-gold: var(--gold);
-  --color-warm-dark: var(--warm-dark);
-  --color-warm-light: var(--warm-light);
+  --color-leaf: var(--leaf);
+  --color-cream: var(--cream);
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(0.98 0.005 85);
-  --foreground: oklch(0.25 0.03 50);
-  --card: oklch(0.99 0.005 85);
-  --card-foreground: oklch(0.25 0.03 50);
-  --popover: oklch(0.99 0.005 85);
-  --popover-foreground: oklch(0.25 0.03 50);
-  --primary: oklch(0.55 0.12 45);
-  --primary-foreground: oklch(0.98 0.005 85);
-  --secondary: oklch(0.65 0.08 120);
-  --secondary-foreground: oklch(0.98 0.005 85);
-  --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.5 0.05 60);
-  --accent: oklch(0.72 0.15 90);
-  --accent-foreground: oklch(0.25 0.03 50);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.9 0.01 80);
-  --input: oklch(0.9 0.01 80);
-  --ring: oklch(0.55 0.12 45);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.97 0.005 85);
-  --sidebar-foreground: oklch(0.25 0.03 50);
-  --sidebar-primary: oklch(0.55 0.12 45);
-  --sidebar-primary-foreground: oklch(0.98 0.005 85);
-  --sidebar-accent: oklch(0.94 0.01 80);
-  --sidebar-accent-foreground: oklch(0.25 0.03 50);
-  --sidebar-border: oklch(0.9 0.01 80);
-  --sidebar-ring: oklch(0.55 0.12 45);
+  --radius: 1rem;
 
-  /* Custom Chez Nanda tokens */
-  --cream: oklch(0.98 0.005 85);
-  --terracotta: oklch(0.55 0.12 45);
-  --sage: oklch(0.65 0.08 120);
-  --gold: oklch(0.72 0.15 90);
-  --warm-dark: oklch(0.25 0.03 50);
-  --warm-light: oklch(0.96 0.01 80);
+  --maroon: oklch(0.405 0.125 13.9);
+  --maroon-deep: oklch(0.319 0.099 13.8);
+  --gold: oklch(0.87 0.124 81.9);
+  --leaf: oklch(0.848 0.099 104.5);
+  --cream: oklch(0.984 0.009 44.9);
+
+  --background: oklch(0.405 0.125 13.9);
+  --foreground: oklch(0.984 0.009 44.9);
+  --card: oklch(0.36 0.111 13.8);
+  --card-foreground: oklch(0.984 0.009 44.9);
+  --popover: oklch(0.36 0.111 13.8);
+  --popover-foreground: oklch(0.984 0.009 44.9);
+  --primary: oklch(0.87 0.124 81.9);
+  --primary-foreground: oklch(0.319 0.099 13.8);
+  --secondary: oklch(0.848 0.099 104.5);
+  --secondary-foreground: oklch(0.319 0.099 13.8);
+  --muted: oklch(0.36 0.111 13.8);
+  --muted-foreground: oklch(0.88 0.02 40);
+  --accent: oklch(0.848 0.099 104.5);
+  --accent-foreground: oklch(0.319 0.099 13.8);
+  --destructive: oklch(0.62 0.2 25);
+  --destructive-foreground: oklch(0.984 0.009 44.9);
+  --border: oklch(0.87 0.124 81.9 / 35%);
+  --input: oklch(0.87 0.124 81.9 / 35%);
+  --ring: oklch(0.87 0.124 81.9);
+  --chart-1: oklch(0.87 0.124 81.9);
+  --chart-2: oklch(0.848 0.099 104.5);
+  --chart-3: oklch(0.62 0.15 20);
+  --chart-4: oklch(0.75 0.1 60);
+  --chart-5: oklch(0.5 0.12 14);
+  --sidebar: oklch(0.36 0.111 13.8);
+  --sidebar-foreground: oklch(0.984 0.009 44.9);
+  --sidebar-primary: oklch(0.87 0.124 81.9);
+  --sidebar-primary-foreground: oklch(0.319 0.099 13.8);
+  --sidebar-accent: oklch(0.405 0.125 13.9);
+  --sidebar-accent-foreground: oklch(0.984 0.009 44.9);
+  --sidebar-border: oklch(0.87 0.124 81.9 / 35%);
+  --sidebar-ring: oklch(0.87 0.124 81.9);
 }
 
+/* The menu is a single warm maroon theme; dark mode mirrors it. */
 .dark {
-  --background: oklch(0.2 0.02 50);
-  --foreground: oklch(0.95 0.005 85);
-  --card: oklch(0.25 0.025 55);
-  --card-foreground: oklch(0.95 0.005 85);
-  --popover: oklch(0.25 0.025 55);
-  --popover-foreground: oklch(0.95 0.005 85);
-  --primary: oklch(0.65 0.1 45);
-  --primary-foreground: oklch(0.15 0.02 50);
-  --secondary: oklch(0.55 0.07 120);
-  --secondary-foreground: oklch(0.95 0.005 85);
-  --muted: oklch(0.3 0.02 55);
-  --muted-foreground: oklch(0.75 0.04 70);
-  --accent: oklch(0.72 0.15 90);
-  --accent-foreground: oklch(0.15 0.02 50);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.35 0.02 55);
-  --input: oklch(0.35 0.02 55);
-  --ring: oklch(0.65 0.1 45);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.25 0.025 55);
-  --sidebar-foreground: oklch(0.95 0.005 85);
-  --sidebar-primary: oklch(0.65 0.1 45);
-  --sidebar-primary-foreground: oklch(0.15 0.02 50);
-  --sidebar-accent: oklch(0.3 0.02 55);
-  --sidebar-accent-foreground: oklch(0.95 0.005 85);
-  --sidebar-border: oklch(0.35 0.02 55);
-  --sidebar-ring: oklch(0.65 0.1 45);
+  --background: oklch(0.319 0.099 13.8);
+  --foreground: oklch(0.984 0.009 44.9);
+  --card: oklch(0.36 0.111 13.8);
+  --card-foreground: oklch(0.984 0.009 44.9);
+  --popover: oklch(0.36 0.111 13.8);
+  --popover-foreground: oklch(0.984 0.009 44.9);
+  --primary: oklch(0.87 0.124 81.9);
+  --primary-foreground: oklch(0.319 0.099 13.8);
+  --secondary: oklch(0.848 0.099 104.5);
+  --secondary-foreground: oklch(0.319 0.099 13.8);
+  --muted: oklch(0.36 0.111 13.8);
+  --muted-foreground: oklch(0.88 0.02 40);
+  --accent: oklch(0.848 0.099 104.5);
+  --accent-foreground: oklch(0.319 0.099 13.8);
+  --border: oklch(0.87 0.124 81.9 / 35%);
+  --input: oklch(0.87 0.124 81.9 / 35%);
+  --ring: oklch(0.87 0.124 81.9);
+  --sidebar: oklch(0.36 0.111 13.8);
+  --sidebar-foreground: oklch(0.984 0.009 44.9);
+  --sidebar-border: oklch(0.87 0.124 81.9 / 35%);
 }
 
 @layer base {
@@ -150,11 +142,52 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-feature-settings: "liga" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-/* Custom utility for elegant menu item dividers */
-@utility menu-divider {
-  border-top: 1px dashed var(--color-border);
+/* Gold rounded frame like the printed menu cards */
+@utility menu-frame {
+  border: 2px solid var(--color-gold);
+  border-radius: 2rem;
+  box-shadow: 0 0 0 1px oklch(0.87 0.124 81.9 / 25%) inset;
+}
+
+/* Starburst price badge from the printed menu */
+@utility price-burst {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gold);
+  color: var(--color-maroon-deep);
+  clip-path: polygon(
+    50% 0%,
+    59% 12%,
+    73% 5%,
+    75% 21%,
+    91% 19%,
+    86% 34%,
+    100% 40%,
+    89% 50%,
+    100% 60%,
+    86% 66%,
+    91% 81%,
+    75% 79%,
+    73% 95%,
+    59% 88%,
+    50% 100%,
+    41% 88%,
+    27% 95%,
+    25% 79%,
+    9% 81%,
+    14% 66%,
+    0% 60%,
+    11% 50%,
+    0% 40%,
+    14% 34%,
+    9% 19%,
+    25% 21%,
+    27% 5%,
+    41% 12%
+  );
 }
