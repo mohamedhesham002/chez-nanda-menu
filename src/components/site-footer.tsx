@@ -16,9 +16,6 @@ export function SiteFooter() {
           <Instagram className="h-4 w-4" />
           @chez.nanda
         </a>
-        <p className="text-xs text-foreground/70">
-          © {new Date().getFullYear()} Chez Nanda. All prices in EGP.
-        </p>
       </div>
     </footer>
   );
