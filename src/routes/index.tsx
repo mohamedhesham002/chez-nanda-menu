@@ -1,25 +1,23 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, UtensilsCrossed } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-import heroImage from "../assets/hero.jpg";
+import { BrandLogo } from "@/components/brand-logo";
+import { menuCategories } from "@/lib/menu-data";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Chez Nanda — Seasonal French Bistro" },
+      { title: "Chez Nanda — Healthy Snacks & More" },
       {
         name: "description",
         content:
-          "Welcome to Chez Nanda. Discover a warm bistro menu of starters, mains, desserts, and drinks made with seasonal ingredients.",
+          "Chez Nanda menu: energy balls, healthy bites and cookies made with dates, nuts, almond flour and dark chocolate.",
       },
-      {
-        property: "og:title",
-        content: "Chez Nanda — Seasonal French Bistro",
-      },
+      { property: "og:title", content: "Chez Nanda — Healthy Snacks & More" },
       {
         property: "og:description",
         content:
-          "Welcome to Chez Nanda. Discover a warm bistro menu of starters, mains, desserts, and drinks made with seasonal ingredients.",
+          "Chez Nanda menu: energy balls, healthy bites and cookies made with dates, nuts, almond flour and dark chocolate.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -28,92 +26,44 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const categories = [
-  { to: "/starters", label: "Starters", description: "Small plates to begin the evening" },
-  { to: "/mains", label: "Mains", description: "Hearty, comforting dishes" },
-  { to: "/desserts", label: "Desserts", description: "Sweet house-made finales" },
-  { to: "/drinks", label: "Drinks", description: "Wines, cocktails, and more" },
-];
-
 function HomePage() {
   return (
-    <main className="flex-1">
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={heroImage}
-            alt="Rustic French bistro table with warm candlelight and seasonal dishes"
-            className="h-full w-full object-cover"
-          />
-          <div className="absolute inset-0 bg-warm-dark/60" />
-        </div>
-        <div className="relative mx-auto flex max-w-5xl flex-col items-center justify-center px-4 py-24 text-center sm:py-32">
-          <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/90 text-primary-foreground">
-            <UtensilsCrossed className="h-7 w-7" />
-          </div>
-          <h1 className="font-serif text-5xl font-semibold tracking-tight text-cream sm:text-6xl lg:text-7xl">
-            Chez Nanda
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-cream/90 sm:text-xl">
-            A warm bistro where seasonal ingredients meet French comfort food — served with soul,
-            simplicity, and a little joie de vivre.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/starters"
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
-            >
-              View the menu <ArrowRight className="h-4 w-4" />
-            </Link>
-            <a
-              href="tel:+33123456789"
-              className="inline-flex items-center rounded-md border border-cream/30 bg-cream/10 px-5 py-3 text-sm font-medium text-cream backdrop-blur-sm transition-colors hover:bg-cream/20"
-            >
-              Make a reservation
-            </a>
-          </div>
-        </div>
+    <main className="flex-1 px-4 py-10 sm:py-14">
+      <section className="menu-frame mx-auto flex max-w-3xl flex-col items-center bg-card px-5 py-16 text-center sm:px-10 sm:py-20">
+        <BrandLogo className="h-20 w-auto sm:h-28" />
+        <p className="mt-4 text-xs font-semibold uppercase tracking-[0.3em] text-primary sm:text-sm">
+          Healthy Snacks &amp; More
+        </p>
+        <h1 className="sr-only">Chez Nanda — Healthy Snacks &amp; More</h1>
+        <p className="mt-6 max-w-lg text-sm leading-relaxed text-foreground/90 sm:text-base">
+          Handmade energy balls, bites and cookies built from medjool dates, nuts, almond flour and
+          dark chocolate. No refined sugar, no guilt — just real ingredients.
+        </p>
+        <Link
+          to="/energy-balls"
+          className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+        >
+          Browse the menu <ArrowRight className="h-4 w-4" />
+        </Link>
       </section>
 
-      <section className="mx-auto max-w-5xl px-4 py-16 sm:py-20">
-        <div className="text-center">
-          <h2 className="font-serif text-3xl font-semibold text-foreground sm:text-4xl">
-            Explore the menu
-          </h2>
-          <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
-            From light starters to indulgent desserts, every dish is prepared fresh and made to
-            share.
-          </p>
-        </div>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((category) => (
-            <Link
-              key={category.to}
-              to={category.to}
-              className="group rounded-xl border border-border bg-card p-6 shadow-sm transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-md"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="font-serif text-xl font-semibold text-card-foreground">
-                  {category.label}
-                </h3>
-                <ArrowRight className="h-5 w-5 text-primary transition-transform group-hover:translate-x-1" />
-              </div>
-              <p className="mt-2 text-sm text-muted-foreground">{category.description}</p>
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <section className="border-t border-border/60 bg-muted/30">
-        <div className="mx-auto max-w-5xl px-4 py-14 text-center sm:py-18">
-          <h2 className="font-serif text-2xl font-semibold text-foreground sm:text-3xl">
-            Made for gathering
-          </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Whether it's a casual lunch, a special dinner, or a quiet coffee, Chez Nanda is a place
-            to slow down and savor.
-          </p>
-        </div>
+      <section className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-3">
+        {menuCategories.map((category) => (
+          <Link
+            key={category.slug}
+            to={`/${category.slug}` as "/energy-balls"}
+            className="group rounded-2xl border border-primary/40 bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-primary"
+          >
+            <h2 className="text-lg font-bold uppercase tracking-wide text-primary">
+              {category.title}
+            </h2>
+            <p className="mt-2 text-sm text-foreground/85">{category.tagline}</p>
+            <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary">
+              {category.items.length} items
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </span>
+          </Link>
+        ))}
       </section>
     </main>
   );
