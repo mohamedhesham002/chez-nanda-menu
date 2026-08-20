@@ -52,12 +52,12 @@ function HomePage() {
           <Link
             key={category.slug}
             to={`/${category.slug}` as "/energy-balls"}
-            className="group rounded-2xl border border-primary/40 bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-primary"
+            className="group flex flex-col rounded-2xl border border-primary/40 bg-card p-6 text-left transition-all hover:-translate-y-1 hover:border-primary"
           >
             <h2 className="text-lg font-bold uppercase tracking-wide text-primary">
               {category.title}
             </h2>
-            <p className="mt-2 text-sm text-foreground/85">{category.tagline}</p>
+            <p className="mt-2 flex-1 text-sm text-foreground/85">{category.tagline}</p>
             <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-secondary">
               {category.items.length} items
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
