@@ -40,7 +40,9 @@ function HomePage() {
           dark chocolate. No refined sugar, no guilt — just real ingredients.
         </p>
         <Link
-          to="/energy-balls"
+          to="/menu"
+
+
           className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
         >
           Browse the menu <ArrowRight className="h-4 w-4" />

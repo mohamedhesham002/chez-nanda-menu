@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CookiesRouteImport } from './routes/cookies'
 import { Route as EnergyBallsRouteImport } from './routes/energy-balls'
 import { Route as HealthyBitesRouteImport } from './routes/healthy-bites'
+import { Route as MenuRouteImport } from './routes/menu'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const HealthyBitesRoute = HealthyBitesRouteImport.update({
   path: '/healthy-bites',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MenuRoute = MenuRouteImport.update({
+  id: '/menu',
+  path: '/menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cookies': typeof CookiesRoute
   '/energy-balls': typeof EnergyBallsRoute
   '/healthy-bites': typeof HealthyBitesRoute
+  '/menu': typeof MenuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cookies': typeof CookiesRoute
   '/energy-balls': typeof EnergyBallsRoute
   '/healthy-bites': typeof HealthyBitesRoute
+  '/menu': typeof MenuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,15 @@ export interface FileRoutesById {
   '/cookies': typeof CookiesRoute
   '/energy-balls': typeof EnergyBallsRoute
   '/healthy-bites': typeof HealthyBitesRoute
+  '/menu': typeof MenuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
+  fullPaths: '/' | '/cookies' | '/energy-balls' | '/healthy-bites' | '/menu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
-  id: '__root__' | '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
+  to: '/' | '/cookies' | '/energy-balls' | '/healthy-bites' | '/menu'
+  id:
+    '__root__' | '/' | '/cookies' | '/energy-balls' | '/healthy-bites' | '/menu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +77,7 @@ export interface RootRouteChildren {
   CookiesRoute: typeof CookiesRoute
   EnergyBallsRoute: typeof EnergyBallsRoute
   HealthyBitesRoute: typeof HealthyBitesRoute
+  MenuRoute: typeof MenuRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +110,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HealthyBitesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/menu': {
+      id: '/menu'
+      path: '/menu'
+      fullPath: '/menu'
+      preLoaderRoute: typeof MenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +125,7 @@ const rootRouteChildren: RootRouteChildren = {
   CookiesRoute: CookiesRoute,
   EnergyBallsRoute: EnergyBallsRoute,
   HealthyBitesRoute: HealthyBitesRoute,
+  MenuRoute: MenuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,5 +1,6 @@
-import { MenuCard } from "@/components/menu-card";
+import { BackButton } from "@/components/back-button";
 import { BrandLogo } from "@/components/brand-logo";
+import { MenuCard } from "@/components/menu-card";
 import { getCategoryBySlug } from "@/lib/menu-data";
 
 interface MenuPageProps {
@@ -37,6 +38,8 @@ export function MenuPage({ slug }: MenuPageProps) {
           All prices in EGP
         </p>
       </div>
+
+      <BackButton to="/menu" label="Back to full menu" />
     </main>
   );
 }
