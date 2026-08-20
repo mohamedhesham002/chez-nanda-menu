@@ -10,33 +10,73 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DessertsRouteImport } from './routes/desserts'
+import { Route as DrinksRouteImport } from './routes/drinks'
+import { Route as MainsRouteImport } from './routes/mains'
+import { Route as StartersRouteImport } from './routes/starters'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DessertsRoute = DessertsRouteImport.update({
+  id: '/desserts',
+  path: '/desserts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrinksRoute = DrinksRouteImport.update({
+  id: '/drinks',
+  path: '/drinks',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MainsRoute = MainsRouteImport.update({
+  id: '/mains',
+  path: '/mains',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartersRoute = StartersRouteImport.update({
+  id: '/starters',
+  path: '/starters',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/desserts': typeof DessertsRoute
+  '/drinks': typeof DrinksRoute
+  '/mains': typeof MainsRoute
+  '/starters': typeof StartersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/desserts': typeof DessertsRoute
+  '/drinks': typeof DrinksRoute
+  '/mains': typeof MainsRoute
+  '/starters': typeof StartersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/desserts': typeof DessertsRoute
+  '/drinks': typeof DrinksRoute
+  '/mains': typeof MainsRoute
+  '/starters': typeof StartersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
+  id: '__root__' | '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DessertsRoute: typeof DessertsRoute
+  DrinksRoute: typeof DrinksRoute
+  MainsRoute: typeof MainsRoute
+  StartersRoute: typeof StartersRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +88,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/desserts': {
+      id: '/desserts'
+      path: '/desserts'
+      fullPath: '/desserts'
+      preLoaderRoute: typeof DessertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/drinks': {
+      id: '/drinks'
+      path: '/drinks'
+      fullPath: '/drinks'
+      preLoaderRoute: typeof DrinksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mains': {
+      id: '/mains'
+      path: '/mains'
+      fullPath: '/mains'
+      preLoaderRoute: typeof MainsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/starters': {
+      id: '/starters'
+      path: '/starters'
+      fullPath: '/starters'
+      preLoaderRoute: typeof StartersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DessertsRoute: DessertsRoute,
+  DrinksRoute: DrinksRoute,
+  MainsRoute: MainsRoute,
+  StartersRoute: StartersRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
