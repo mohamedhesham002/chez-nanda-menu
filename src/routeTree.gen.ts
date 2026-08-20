@@ -10,73 +10,63 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as DessertsRouteImport } from './routes/desserts'
-import { Route as DrinksRouteImport } from './routes/drinks'
-import { Route as MainsRouteImport } from './routes/mains'
-import { Route as StartersRouteImport } from './routes/starters'
+import { Route as CookiesRouteImport } from './routes/cookies'
+import { Route as EnergyBallsRouteImport } from './routes/energy-balls'
+import { Route as HealthyBitesRouteImport } from './routes/healthy-bites'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DessertsRoute = DessertsRouteImport.update({
-  id: '/desserts',
-  path: '/desserts',
+const CookiesRoute = CookiesRouteImport.update({
+  id: '/cookies',
+  path: '/cookies',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DrinksRoute = DrinksRouteImport.update({
-  id: '/drinks',
-  path: '/drinks',
+const EnergyBallsRoute = EnergyBallsRouteImport.update({
+  id: '/energy-balls',
+  path: '/energy-balls',
   getParentRoute: () => rootRouteImport,
 } as any)
-const MainsRoute = MainsRouteImport.update({
-  id: '/mains',
-  path: '/mains',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const StartersRoute = StartersRouteImport.update({
-  id: '/starters',
-  path: '/starters',
+const HealthyBitesRoute = HealthyBitesRouteImport.update({
+  id: '/healthy-bites',
+  path: '/healthy-bites',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/desserts': typeof DessertsRoute
-  '/drinks': typeof DrinksRoute
-  '/mains': typeof MainsRoute
-  '/starters': typeof StartersRoute
+  '/cookies': typeof CookiesRoute
+  '/energy-balls': typeof EnergyBallsRoute
+  '/healthy-bites': typeof HealthyBitesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/desserts': typeof DessertsRoute
-  '/drinks': typeof DrinksRoute
-  '/mains': typeof MainsRoute
-  '/starters': typeof StartersRoute
+  '/cookies': typeof CookiesRoute
+  '/energy-balls': typeof EnergyBallsRoute
+  '/healthy-bites': typeof HealthyBitesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/desserts': typeof DessertsRoute
-  '/drinks': typeof DrinksRoute
-  '/mains': typeof MainsRoute
-  '/starters': typeof StartersRoute
+  '/cookies': typeof CookiesRoute
+  '/energy-balls': typeof EnergyBallsRoute
+  '/healthy-bites': typeof HealthyBitesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
+  fullPaths: '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
-  id: '__root__' | '/' | '/desserts' | '/drinks' | '/mains' | '/starters'
+  to: '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
+  id: '__root__' | '/' | '/cookies' | '/energy-balls' | '/healthy-bites'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DessertsRoute: typeof DessertsRoute
-  DrinksRoute: typeof DrinksRoute
-  MainsRoute: typeof MainsRoute
-  StartersRoute: typeof StartersRoute
+  CookiesRoute: typeof CookiesRoute
+  EnergyBallsRoute: typeof EnergyBallsRoute
+  HealthyBitesRoute: typeof HealthyBitesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -88,32 +78,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/desserts': {
-      id: '/desserts'
-      path: '/desserts'
-      fullPath: '/desserts'
-      preLoaderRoute: typeof DessertsRouteImport
+    '/cookies': {
+      id: '/cookies'
+      path: '/cookies'
+      fullPath: '/cookies'
+      preLoaderRoute: typeof CookiesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/drinks': {
-      id: '/drinks'
-      path: '/drinks'
-      fullPath: '/drinks'
-      preLoaderRoute: typeof DrinksRouteImport
+    '/energy-balls': {
+      id: '/energy-balls'
+      path: '/energy-balls'
+      fullPath: '/energy-balls'
+      preLoaderRoute: typeof EnergyBallsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/mains': {
-      id: '/mains'
-      path: '/mains'
-      fullPath: '/mains'
-      preLoaderRoute: typeof MainsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/starters': {
-      id: '/starters'
-      path: '/starters'
-      fullPath: '/starters'
-      preLoaderRoute: typeof StartersRouteImport
+    '/healthy-bites': {
+      id: '/healthy-bites'
+      path: '/healthy-bites'
+      fullPath: '/healthy-bites'
+      preLoaderRoute: typeof HealthyBitesRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -121,10 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DessertsRoute: DessertsRoute,
-  DrinksRoute: DrinksRoute,
-  MainsRoute: MainsRoute,
-  StartersRoute: StartersRoute,
+  CookiesRoute: CookiesRoute,
+  EnergyBallsRoute: EnergyBallsRoute,
+  HealthyBitesRoute: HealthyBitesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

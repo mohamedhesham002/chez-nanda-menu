@@ -2,172 +2,140 @@ export interface MenuItem {
   id: string;
   name: string;
   description: string;
-  price: string;
-  tags?: ("vegetarian" | "vegan" | "gluten-free" | "spicy" | "chef's choice")[];
+  price: number;
 }
 
 export interface MenuCategory {
-  id: string;
+  slug: string;
   title: string;
-  subtitle: string;
+  tagline: string;
   items: MenuItem[];
 }
 
+export const CURRENCY = "EGP";
+
 export const menuCategories: MenuCategory[] = [
   {
-    id: "starters",
-    title: "Starters",
-    subtitle: "Small plates to awaken the palate",
+    slug: "energy-balls",
+    title: "Energy Balls",
+    tagline: "Naturally sweet bites of dates, nuts and dried fruit",
     items: [
       {
-        id: "soupe-du-jour",
-        name: "Soupe du Jour",
-        description: "Seasonal vegetable soup finished with a swirl of crème fraîche and fresh herbs.",
-        price: "$9",
-        tags: ["vegetarian"],
+        id: "lemon-balls-box",
+        name: "Lemon Balls Box",
+        description: "3 pieces made with almond flour and lemons",
+        price: 105,
       },
       {
-        id: "tartare-de-saumon",
-        name: "Tartare de Saumon",
-        description: "Fresh salmon tartare with avocado, dill, capers, and lemon-infused olive oil.",
-        price: "$16",
-        tags: ["gluten-free"],
+        id: "apricot-balls-box",
+        name: "Apricot Balls Box",
+        description: "3 pieces made with almond flour and dried apricots",
+        price: 115,
       },
       {
-        id: "escargots",
-        name: "Escargots de Bourgogne",
-        description: "Classic Burgundy snails baked in garlic-parsley butter with a crusty baguette.",
-        price: "$15",
+        id: "apricot-prunes-balls-box",
+        name: "Apricot and Prunes Balls Box",
+        description: "3 pieces made with mixed nuts, dried apricots and prunes",
+        price: 115,
       },
       {
-        id: "salade-de-chèvre",
-        name: "Salade de Chèvre Chaud",
-        description: "Warm goat cheese on toasted brioche with mixed greens, walnuts, and honey vinaigrette.",
-        price: "$14",
-        tags: ["vegetarian"],
+        id: "tamreya-mixed-nuts-jar",
+        name: "Tamreya Mixed Nuts Jar",
+        description:
+          "3 pieces made of dates with a mixture of pistachios, almonds, walnuts, sesame, coconut and cocoa powder",
+        price: 60,
       },
       {
-        id: "croquettes",
-        name: "Croquettes de Jambon",
-        description: "Crispy ham croquettes with béchamel center and grainy mustard aioli.",
-        price: "$13",
+        id: "orange-rush-box",
+        name: "Orange Rush Box",
+        description:
+          "3 pieces made of medjool dates with a mixture of almonds, oranges and cocoa powder",
+        price: 70,
       },
     ],
   },
   {
-    id: "mains",
-    title: "Mains",
-    subtitle: "Hearty, comforting dishes from the heart",
+    slug: "healthy-bites",
+    title: "Healthy Bites",
+    tagline: "Dates, nuts and dark chocolate — no guilt included",
     items: [
       {
-        id: "coq-au-vin",
-        name: "Coq au Vin",
-        description: "Braised chicken in red wine with mushrooms, pearl onions, and lardons, served with mashed potatoes.",
-        price: "$26",
-        tags: ["chef's choice"],
+        id: "sesame-bites-box",
+        name: "Sesame Bites Box",
+        description:
+          "4 pieces made of dates with a mixture of almonds, walnuts, sesame and dark chocolate",
+        price: 80,
       },
       {
-        id: "steak-frites",
-        name: "Steak Frites",
-        description: "Grilled hanger steak with herb butter, crispy hand-cut fries, and peppercorn sauce.",
-        price: "$28",
+        id: "peanut-bites",
+        name: "Peanut Bites",
+        description: "1 piece made of dates with crushed peanuts covered with dark chocolate",
+        price: 40,
       },
       {
-        id: "ratatouille",
-        name: "Ratatouille Niçoise",
-        description: "Provençal stewed vegetables with zucchini, eggplant, peppers, and tomato, served with polenta.",
-        price: "$21",
-        tags: ["vegan", "gluten-free"],
+        id: "walnuts-bites",
+        name: "Walnuts Bites",
+        description:
+          "1 piece filled with walnuts, cocoa powder, honey and dates covered with dark chocolate and sea salt",
+        price: 50,
       },
       {
-        id: "magret-de-canard",
-        name: "Magret de Canard",
-        description: "Pan-seared duck breast with cherry gastrique, roasted root vegetables, and thyme jus.",
-        price: "$30",
-        tags: ["gluten-free"],
+        id: "peanut-bomb",
+        name: "Peanut Bomb",
+        description:
+          "1 piece made of medjool dates with peanut butter and peanuts covered with dark chocolate and sea salt",
+        price: 55,
       },
       {
-        id: "bouillabaisse",
-        name: "Bouillabaisse",
-        description: "Marseille-style fish stew with saffron broth, shellfish, rouille, and grilled baguette.",
-        price: "$32",
+        id: "no-guilt-choco-bites",
+        name: "No Guilt Choco Bites",
+        description:
+          "1 piece mix of pumpkin seeds, almonds, cashews, raisins, hazelnut and mixed dried fruits covered with dark chocolate",
+        price: 55,
+      },
+      {
+        id: "tamrat-box",
+        name: "Tamrat Box",
+        description:
+          "2 pieces of medjool dates with a variety of fillings to choose from (pistachio cream and pistachio / nutella and almond / coconut cream / peanut butter and peanuts / lotus / cashews / walnuts / apricots & prunes) covered with dark chocolate",
+        price: 100,
+      },
+      {
+        id: "not-so-cheesecake",
+        name: "Not So Cheesecake",
+        description: "A cup of cottage cheese, roasted almonds and fresh strawberries",
+        price: 80,
       },
     ],
   },
   {
-    id: "desserts",
-    title: "Desserts",
-    subtitle: "Sweet endings, made in-house daily",
+    slug: "cookies",
+    title: "Cookies",
+    tagline: "Double layered and baked with wholesome flours",
     items: [
       {
-        id: "crème-brûlée",
-        name: "Crème Brûlée",
-        description: "Vanilla bean custard with a caramelized sugar crust and fresh berries.",
-        price: "$11",
-        tags: ["vegetarian", "gluten-free"],
+        id: "almond-oats-cookies",
+        name: "Almond & Oats Cookies",
+        description: "A double layered cookie made of almond flour, oats flour and dark chocolate",
+        price: 30,
       },
       {
-        id: "tarte-tatin",
-        name: "Tarte Tatin",
-        description: "Caramelized apple tart baked upside down, served warm with vanilla ice cream.",
-        price: "$12",
-        tags: ["vegetarian"],
+        id: "corn-oats-cookies",
+        name: "Corn & Oats Cookies",
+        description: "A double layered cookie made of corn flour, oats flour and dark chocolate",
+        price: 30,
       },
       {
-        id: "mousse-au-chocolat",
-        name: "Mousse au Chocolat",
-        description: "Silky dark chocolate mousse with sea salt and whipped crème fraîche.",
-        price: "$10",
-        tags: ["vegetarian", "gluten-free"],
-      },
-      {
-        id: "profiteroles",
-        name: "Profiteroles",
-        description: "Choux pastries filled with vanilla ice cream and drizzled with warm chocolate sauce.",
-        price: "$12",
-        tags: ["vegetarian"],
-      },
-    ],
-  },
-  {
-    id: "drinks",
-    title: "Drinks",
-    subtitle: "Wines, cocktails, and non-alcoholic refreshments",
-    items: [
-      {
-        id: "kir-royal",
-        name: "Kir Royal",
-        description: "Champagne with a touch of crème de cassis.",
-        price: "$14",
-      },
-      {
-        id: "vin-rouge",
-        name: "Vin Rouge du Jour",
-        description: "A rotating selection of our sommelier's favorite French reds by the glass.",
-        price: "$12",
-      },
-      {
-        id: "citron-pressé",
-        name: "Citron Pressé",
-        description: "Freshly squeezed lemon with sparkling water and a hint of lavender syrup.",
-        price: "$7",
-      },
-      {
-        id: "café-crème",
-        name: "Café Crème",
-        description: "Rich espresso with steamed milk, served with a delicate madeleine.",
-        price: "$6",
-      },
-      {
-        id: "tisane",
-        name: "Tisane Maison",
-        description: "House herbal infusion of chamomile, verbena, and orange blossom.",
-        price: "$5",
+        id: "amaretti-cookies",
+        name: "Amaretti Cookies",
+        description:
+          "A double layered cookie made of almond flour, oats flour, shredded coconuts and honey",
+        price: 30,
       },
     ],
   },
 ];
 
-export function getCategoryById(id: string): MenuCategory | undefined {
-  return menuCategories.find((category) => category.id === id);
+export function getCategoryBySlug(slug: string): MenuCategory | undefined {
+  return menuCategories.find((category) => category.slug === slug);
 }

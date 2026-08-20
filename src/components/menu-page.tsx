@@ -1,30 +1,42 @@
 import { MenuCard } from "@/components/menu-card";
-import { getCategoryById } from "@/lib/menu-data";
+import { BrandLogo } from "@/components/brand-logo";
+import { getCategoryBySlug } from "@/lib/menu-data";
 
 interface MenuPageProps {
-  categoryId: string;
+  slug: string;
 }
 
-export function MenuPage({ categoryId }: MenuPageProps) {
-  const category = getCategoryById(categoryId);
+export function MenuPage({ slug }: MenuPageProps) {
+  const category = getCategoryBySlug(slug);
 
-  if (!category) {
-    return null;
-  }
+  if (!category) return null;
 
   return (
-    <main className="mx-auto max-w-3xl px-4 py-12">
-      <header className="mb-10 text-center">
-        <h1 className="font-serif text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          {category.title}
-        </h1>
-        <p className="mt-3 text-lg text-muted-foreground">{category.subtitle}</p>
-      </header>
-      <section aria-label={`${category.title} menu items`}>
-        {category.items.map((item) => (
-          <MenuCard key={item.id} item={item} />
-        ))}
-      </section>
+    <main className="flex-1 px-4 py-10 sm:py-14">
+      <div className="menu-frame mx-auto max-w-3xl bg-card px-5 py-10 sm:px-10 sm:py-12">
+        <header className="text-center">
+          <BrandLogo className="mx-auto h-12 w-auto sm:h-14" />
+          <h1 className="mt-3 text-3xl font-bold uppercase tracking-wide text-primary sm:text-4xl">
+            {category.title}
+          </h1>
+          <p className="mx-auto mt-3 max-w-md text-sm text-foreground/80 sm:text-base">
+            {category.tagline}
+          </p>
+        </header>
+
+        <section
+          aria-label={`${category.title} items`}
+          className="mt-8 divide-y divide-primary/20"
+        >
+          {category.items.map((item) => (
+            <MenuCard key={item.id} item={item} />
+          ))}
+        </section>
+
+        <p className="mt-8 text-center text-xs uppercase tracking-[0.2em] text-primary/80">
+          All prices in EGP
+        </p>
+      </div>
     </main>
   );
 }
