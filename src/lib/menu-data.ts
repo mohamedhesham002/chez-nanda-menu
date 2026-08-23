@@ -9,6 +9,7 @@ export interface MenuCategory {
   slug: string;
   title: string;
   tagline: string;
+  image: string;
   items: MenuItem[];
 }
 
