@@ -129,6 +129,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <WelcomeIntro />
       <div className="flex min-h-screen flex-col">
         <SiteHeader />
         <Outlet />
