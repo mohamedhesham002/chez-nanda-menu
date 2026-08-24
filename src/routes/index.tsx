@@ -49,11 +49,10 @@ function HomePage() {
           </p>
           <h1 className="sr-only">Chez Nanda — Healthy Snacks &amp; More</h1>
           <p
-            className="reveal-up mt-6 max-w-lg text-sm leading-relaxed text-foreground/90 sm:text-base"
+            className="reveal-up mt-6 max-w-lg text-sm leading-relaxed text-foreground/90 whitespace-pre-line sm:text-base"
             style={{ animationDelay: "220ms" }}
           >
-            Handmade energy balls, bites and cookies built from medjool dates, nuts, almond flour and
-            dark chocolate. No refined sugar, no guilt — just real ingredients.
+            {"Homemade snacks for a healthier lifestyle..\nNo refined sugar,\u00a0\nno guilt -just real ingredients"}
           </p>
           <Link
             to="/menu"
