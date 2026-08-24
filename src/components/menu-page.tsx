@@ -22,6 +22,7 @@ export function MenuPage({ slug }: MenuPageProps) {
             width={1024}
             height={768}
             className="h-48 w-full object-cover sm:h-64"
+            style={{ objectPosition: category.imagePosition }}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-card via-card/70 to-card/20" />
           <header className="absolute inset-x-0 bottom-0 px-5 pb-5 text-center sm:px-10 sm:pb-7">

@@ -1,6 +1,6 @@
-import catCookies from "@/assets/cookies.jpg.asset.json";
 import catEnergyBalls from "@/assets/cat-energy-balls.jpg";
-import catHealthyBites from "@/assets/healthy-bites.jpg.asset.json";
+import cookiesImage from "@/assets/coolies.jpeg";
+import healthyBitesImage from "@/assets/healthy.jpeg";
 
 export interface MenuItem {
   id: string;
@@ -14,6 +14,7 @@ export interface MenuCategory {
   title: string;
   tagline: string;
   image: string;
+  imagePosition: string;
   items: MenuItem[];
 }
 
@@ -25,6 +26,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Energy Balls",
     tagline: "Naturally sweet bites of dates, nuts and dried fruit",
     image: catEnergyBalls,
+    imagePosition: "center",
     items: [
       {
         id: "lemon-balls-box",
@@ -64,7 +66,8 @@ export const menuCategories: MenuCategory[] = [
     slug: "healthy-bites",
     title: "Healthy Bites",
     tagline: "Dates, nuts and dark chocolate — no guilt included",
-    image: catHealthyBites.url,
+    image: healthyBitesImage,
+    imagePosition: "center",
     items: [
       {
         id: "sesame-bites-box",
@@ -119,7 +122,8 @@ export const menuCategories: MenuCategory[] = [
     slug: "cookies",
     title: "Cookies",
     tagline: "Warm, rich cookies baked with heart and wholesome grains.",
-    image: catCookies.url,
+    image: cookiesImage,
+    imagePosition: "center",
     items: [
       {
         id: "almond-oats-cookies",

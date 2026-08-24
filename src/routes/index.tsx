@@ -81,6 +81,7 @@ function HomePage() {
                 width={1024}
                 height={768}
                 className="h-36 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                style={{ objectPosition: category.imagePosition }}
               />
             </div>
             <div className="flex flex-1 flex-col p-6">

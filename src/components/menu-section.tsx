@@ -16,6 +16,7 @@ export function MenuSection({ category }: MenuSectionProps) {
           width={1024}
           height={768}
           className="h-40 w-full object-cover transition-transform duration-700 hover:scale-105 sm:h-56"
+          style={{ objectPosition: category.imagePosition }}
         />
       </div>
       <h2

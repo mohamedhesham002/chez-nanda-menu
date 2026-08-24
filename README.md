@@ -2,17 +2,12 @@
 
 make project for menu for chez nanda
 
-This project was built with [Lovable](https://lovable.dev).
+The Chez Nanda menu for handmade energy balls, healthy bites, and cookies.
 
-**Live app**: https://chez-nanda-menu.lovable.app
+Visit the Chez Nanda menu locally with the development commands below.
 
-## Build with Lovable
+## Development
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/252d96d8-49d5-4857-8b2f-7898e8100969).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
