@@ -1,6 +1,6 @@
-import catCookies from "@/assets/cat-cookies.jpg";
+import catCookies from "@/assets/cookies.jpg.asset.json";
 import catEnergyBalls from "@/assets/cat-energy-balls.jpg";
-import catHealthyBites from "@/assets/cat-healthy-bites.jpg";
+import catHealthyBites from "@/assets/healthy-bites.jpg.asset.json";
 
 export interface MenuItem {
   id: string;
@@ -64,7 +64,7 @@ export const menuCategories: MenuCategory[] = [
     slug: "healthy-bites",
     title: "Healthy Bites",
     tagline: "Dates, nuts and dark chocolate — no guilt included",
-    image: catHealthyBites,
+    image: catHealthyBites.url,
     items: [
       {
         id: "sesame-bites-box",
@@ -119,7 +119,7 @@ export const menuCategories: MenuCategory[] = [
     slug: "cookies",
     title: "Cookies",
     tagline: "Double layered and baked with wholesome flours",
-    image: catCookies,
+    image: catCookies.url,
     items: [
       {
         id: "almond-oats-cookies",
