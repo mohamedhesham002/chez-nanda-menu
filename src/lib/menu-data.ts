@@ -64,7 +64,7 @@ export const menuCategories: MenuCategory[] = [
     slug: "healthy-bites",
     title: "Healthy Bites",
     tagline: "Dates, nuts and dark chocolate — no guilt included",
-    image: catHealthyBites,
+    image: catHealthyBites.url,
     items: [
       {
         id: "sesame-bites-box",
@@ -119,7 +119,7 @@ export const menuCategories: MenuCategory[] = [
     slug: "cookies",
     title: "Cookies",
     tagline: "Double layered and baked with wholesome flours",
-    image: catCookies,
+    image: catCookies.url,
     items: [
       {
         id: "almond-oats-cookies",
