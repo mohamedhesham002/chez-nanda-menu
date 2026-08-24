@@ -1,6 +1,6 @@
-import catCookies from "@/assets/cat-cookies.jpg";
+import catCookies from "@/assets/cookies.jpg.asset.json";
 import catEnergyBalls from "@/assets/cat-energy-balls.jpg";
-import catHealthyBites from "@/assets/cat-healthy-bites.jpg";
+import catHealthyBites from "@/assets/healthy-bites.jpg.asset.json";
 
 export interface MenuItem {
   id: string;
