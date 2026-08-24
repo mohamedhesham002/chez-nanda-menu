@@ -118,7 +118,7 @@ export const menuCategories: MenuCategory[] = [
   {
     slug: "cookies",
     title: "Cookies",
-    tagline: "Double layered and baked with wholesome flours",
+    tagline: "Warm, rich cookies baked with heart and wholesome grains.
     image: catCookies.url,
     items: [
       {
